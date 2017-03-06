@@ -7,7 +7,7 @@
 using namespace std;
 
 struct Vect{
-    int num[3];
+    int num[1000];
     Vect(int i) {
         int num[i];
     }

@@ -27,17 +27,20 @@ struct Vect {
 		}
 	}
 
-	double dot(Vect& y) {
-		if (size!=y.size) {
+
+	double operator*(Vect& v) {
+		if (size!=v.size) {
 			cout << "not same size";
 			return 0;
 		}
 		double result=0;
 		for (int i=0;i<size;i++) {
-			result+=contents[i]*y.contents[i];
+			result+=contents[i]*v.contents[i];
 		}
 		return result;
 	}
+
+
 
 	void random() {
 		for (int i=0;i<size;i++) {
@@ -74,6 +77,7 @@ int main() {
 	v1+=v2;
 	cout << v1;
 
-	cout << "dot(v1,v2)=" << v1.dot(v2) << endl;
+
+	cout << "v1.v2=" << v1*v2 << endl;
 	return 0;
 }

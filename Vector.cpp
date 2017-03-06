@@ -17,7 +17,7 @@ struct Vect {
     }
 
     ~Vect() {
-        cout << "Vect number destructed.."<< endl;
+        cout << "Vect destructed.."<< endl;
     }
 
     void random(int min, int max)

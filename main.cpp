@@ -8,12 +8,12 @@
 using namespace std;
 
 struct Vect{
-    int num[1000];
+    int num[5];
     Vect(int i) {
         int num[i];
     }
     void Random() {
-        for (int i = 0; i < sizeof(num)-1; ++i) {
+        for (int i = 0; i < ((sizeof(num)/4)-1); ++i) {
             num[i] = rand()%100;
         }
     }

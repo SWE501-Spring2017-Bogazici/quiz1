@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <time.h>
 
 using namespace std;
 
@@ -46,6 +47,7 @@ ostream& operator<<(ostream &out, Vect &val ) {
 
 
 int main() {
+    srand(time(NULL));
     int i;
     cout << "Please enter the dimentions of the arrays: " << endl;
     cin >> i;

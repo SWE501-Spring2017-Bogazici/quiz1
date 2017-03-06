@@ -1,0 +1,79 @@
+# quiz1
+
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+using namespace std;
+
+struct Vector {
+
+	int length; // vector length
+	double array[50]; // vector array
+
+	// constructor
+	Vector(int i)
+	{
+		length = i;
+	}
+
+	// addition of two vectors
+	void operator+=(Vector& v) {
+		for (int i = 0; i < length; i++)
+			array[i] += v.array[i];
+	}
+
+	// multiplication of two vectors
+	double operator*(Vector& v) {
+
+		double sum = 0.0;
+
+		for (int i = 0; i < length; i++) {
+			array[i] *= v.array[i];
+			sum += array[i];
+		}
+
+		return sum;
+	}
+
+	// random generation of vector elements
+	void random ()
+	{
+		for (int i = 0; i < length; i++) {
+			array[i] = rand() % 100;
+		}
+	}
+};
+
+ostream& operator << (ostream& out, Vector& v) {
+	for (int i = 0; i < v.length; i++)
+		out  << v.array[i] << ' ';
+	return out;
+}
+
+int main()
+{
+	// initialize random
+	srand((unsigned)time(NULL));
+
+	// initialize vector
+	Vector v(4);
+	Vector w(4);
+	// generate random vector elements
+	v.random();
+	w.random();
+
+	// add two vectors
+	cout << "Adding two vectors "<< v << " and " << w << " is equal to ";
+	v+=w;
+	cout << v;
+
+	// multiply two vectors
+	cout << "\n\nMultiplying two vectors "<< v << " and " << w << " is equal to ";
+	double k = v*w;
+	cout << k;
+}
+
+
+
+
+

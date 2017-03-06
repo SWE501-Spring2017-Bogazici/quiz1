@@ -17,10 +17,9 @@ struct Vect {
 	Vect(int t) {
 		size=t;
 		for (int i=0;i<size;i++) {
-			contents[i]+=0;
+			contents[i]=0;
 		}
 	}
-
 
 	void operator+=(Vect& y) {
 		for (int i=0;i<size;i++) {
@@ -28,9 +27,21 @@ struct Vect {
 		}
 	}
 
+	double dot(Vect& y) {
+		if (size!=y.size) {
+			cout << "not same size";
+			return 0;
+		}
+		double result=0;
+		for (int i=0;i<size;i++) {
+			result+=contents[i]*y.contents[i];
+		}
+		return result;
+	}
+
 	void random() {
 		for (int i=0;i<size;i++) {
-			contents[i]=rand() % 100;
+			contents[i]=rand() % 10;
 		}
 	}
 };
@@ -53,8 +64,6 @@ ostream& operator<<(ostream& out, Vect& z) {
 
 int main() {
 
-
-
 	Vect v1=Vect(4);
 	Vect v2=Vect(4);
 	v1.random();v2.random();
@@ -64,5 +73,7 @@ int main() {
 
 	v1+=v2;
 	cout << v1;
+
+	cout << "dot(v1,v2)=" << v1.dot(v2) << endl;
 	return 0;
 }

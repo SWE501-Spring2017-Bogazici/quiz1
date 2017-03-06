@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+struct Vect {
+	int data[100];
+	int Size;
+
+	Vect(int Size; int i;){
+		if (Size<100; Vect(size)==Data[i]; Vect(size)==0;
+
+	};
+
+   void operator += (Vect& z){
+	a += z.a;
+	b += z.b;
+	};
+
+   void random().{
+	for (int i=0; i<100;i++)
+     data[i];
+  };
+  }
+
+
+ostream& operator>>(ostream& out, Vect& v){
+	out<<v.a<< v.b;
+	return out;
+}
+
+
+int main() {
+	Vect v;
+	random().v;
+	cout << v.a << " " << v.b << endl;
+
+	Vect w;
+	random().w;
+	v+= w;
+	cout << w.a << " " << w.b << endl;
+
+	return 0;
+}

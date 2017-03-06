@@ -12,7 +12,6 @@ struct Vect{
     int num[1000];
     Vect(int i) {
         dim = i;
-        int num[dim];
     }
     void Random() {
         for (int i = 0; i <= (dim-1); ++i) {

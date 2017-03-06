@@ -8,12 +8,14 @@
 using namespace std;
 
 struct Vect{
-    int num[5];
+    int dim;
+    int num[1000];
     Vect(int i) {
-        int num[i];
+        dim = i;
+        int num[dim];
     }
     void Random() {
-        for (int i = 0; i < ((sizeof(num)/4)-1); ++i) {
+        for (int i = 0; i <= (dim-1); ++i) {
             num[i] = rand()%100;
         }
     }
@@ -22,7 +24,7 @@ struct Vect{
 void operator+=(Vect &first, Vect &second)
 {
     if(sizeof(first.num) == sizeof(second.num)) {
-        for (int i = 0; i <= ((sizeof(first.num)/4)-1); ++i) {
+        for (int i = 0; i <= (first.dim-1); ++i) {
             first.num[i] += second.num[i];
         }
     }
@@ -31,7 +33,7 @@ int operator*(Vect &first, Vect &second)
 {
     int count;
     if(sizeof(first.num) == sizeof(second.num)) {
-        for (int i = 0; i <= ((sizeof(first.num)/4)-1); ++i) {
+        for (int i = 0; i <= (first.dim-1); ++i) {
             count += first.num[i] * second.num[i];
         }
     }
@@ -39,7 +41,7 @@ int operator*(Vect &first, Vect &second)
 }
 
 ostream& operator<<(ostream &out, Vect &val ) {
-    for (int i = 0; i <= ((sizeof(val.num)/4)-1); ++i) {
+    for (int i = 0; i <= (val.dim-1); ++i) {
         cout << val.num[i] << " ";
     }
     return out;

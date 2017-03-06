@@ -57,7 +57,7 @@ struct Vect {
 
 };
 
-// left shift operator overloading for Complex Numbers
+// left shift operator overloading for Vector
 ostream& operator<<(ostream& out, Vect& z) {
     cout << "vector: ";
     for (int i = 0; i < z.size; i++) {
@@ -69,7 +69,7 @@ ostream& operator<<(ostream& out, Vect& z) {
 
 int main() {
 
-    // Initializing v2
+    // Initializing v1
     Vect v1(10);
     v1.random(0, 50);
 

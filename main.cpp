@@ -21,9 +21,11 @@ struct vect{
 	}
 		
 	void random(){
-		for(int i=0; i<size; i++){
-			values[i] = rand()%101 -50;
-		}
+		for(int i=0; i<size; i++) values[i] = rand()%101 -50;
+	}
+	
+	void random(int r){
+		for(int i=0; i<size; i++) values[i] = rand()%(2*r+1) -r ;
 	}
 };
 
@@ -49,14 +51,16 @@ int main()
 {
 	srand(time(NULL));
 	
-	vect ex1(3);
+	vect ex1(4);
 	ex1.random();
 	cout<<ex1;
-	vect ex2(7);
+	vect ex2(4);
 	ex2.random();
 	cout << ex2;
 	int vectproduct = (ex1*ex2);
 	cout << vectproduct << endl; //working fine
+	ex2.random(666);
+	cout << ex2;
 	ex1 += ex2; //working fine
 	cout << ex1;
 	

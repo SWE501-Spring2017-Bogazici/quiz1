@@ -1,0 +1,73 @@
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+
+using namespace std;
+
+struct Vect {
+	int dim;
+
+	int num[1000];
+
+	Vect(){}
+
+	Vect(int dimension)
+	{
+
+		dim = dimension;
+	}
+
+	void RandomGenerator()
+	{
+		for (int i = 0; i < dim; ++i) {
+			int ran = rand() % 100;
+			num[i] = ran;
+		}
+	}
+};
+
+ostream& operator<<(ostream& out, Vect& v)
+{
+	for (int i = 0; i < v.dim; ++i) {
+		out << v.num[i] << endl;
+	}
+	return out;
+}
+
+Vect& operator+=(Vect& v1, Vect& v2) {
+	for (int i = 0; i < v1.dim; ++i) {
+		v1.num[i] += v2.num[i];
+	}
+	return v1;
+}
+
+int operator*(Vect& v1, Vect& v2) {
+	int result = 0;
+	for (int i = 0; i < v1.dim; ++i) {
+		result += v1.num[i] * v2.num[i];
+	}
+
+	return result;
+}
+
+int main() {
+	srand(time(NULL));
+	int dim;
+	cout << "Specify vectors' dimension: ";
+	cin >> dim;
+
+	Vect v1(dim);
+	Vect v2(dim);
+	v1.RandomGenerator();
+	v2.RandomGenerator();
+	cout << "Vector 1: " << endl;
+	cout<< v1 << endl;
+	cout << "Vector 2: " << endl;
+	cout << v2 << endl;
+
+	v1 += v2;
+	cout << "Sum of two vectors: " << v1 << endl;
+	cout << "Multiplication of two vectors: " << v1*v2 << endl;
+
+	return 0;
+}

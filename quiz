@@ -1,0 +1,61 @@
+//============================================================================
+// Name        : quiz.cpp
+// Author      : Busra Ondul
+// Version     :
+// Copyright   : 06.03.2017
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include<stdlib.h>
+#include <time.h>
+using namespace std;
+
+struct vector {
+
+	int dim;
+	int arr[5];
+
+	vector(int dimension) {
+		dim = dimension;
+	}
+
+	void random() {
+		for (int i = 0; i < dim; i++) {
+			int ran = rand() % 100;
+			arr[i] = ran;
+		}
+
+	}
+
+};
+
+ostream& operator<<(ostream& v1, vector& v2) {
+	for (int i = 0; i < v2.dim; +i) {
+		v1 << v2.arr[i] << endl;
+	}
+	return v1;
+}
+
+void operator+=(vector& v1, vector& v2) {
+	int result = 0;
+	for (int i = 0; i < v1.dim; +i) {
+		v1.arr[i] += v2.arr[i];
+	}
+}
+
+
+int main() {
+	srand(time(NULL));
+	int dim;
+	cout << "enter dimension" << endl;
+	vector v1(dim);
+	vector v2(dim);
+	v1.random();
+	v2.random();
+
+	int v3 = v1 + v2;
+	cout << "Sum is: " << endl;
+	cout << v3 << endl;
+	return 0;
+}
